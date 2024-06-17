@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/gradle/publish.gradle"
+
+android {
+    namespace = "top.jessi.okserver"
+    compileSdk = 34
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+        minSdk = 21
+        targetSdk = 34
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation project(':okgo')
+}
