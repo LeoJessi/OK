@@ -88,7 +88,6 @@ public class OK {
         builder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
         builder.hostnameVerifier(HttpsUtils.UnSafeHostnameVerifier);
         okHttpClient = builder.build();
-        initLog();
     }
 
     /**
@@ -171,6 +170,7 @@ public class OK {
      */
     public OK init(Application app) {
         context = app;
+        initLog();
         return this;
     }
 
