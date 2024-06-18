@@ -15,7 +15,6 @@
  */
 package top.jessi.okgo.utils;
 
-import top.jessi.ilog.ILog;
 
 /**
  * ================================================

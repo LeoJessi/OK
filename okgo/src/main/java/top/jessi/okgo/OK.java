@@ -24,9 +24,6 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
-import top.jessi.ilog.ILog;
-import top.jessi.ilog.LogConfiguration;
-import top.jessi.ilog.LogLevel;
 import top.jessi.okgo.cache.CacheEntity;
 import top.jessi.okgo.cache.CacheMode;
 import top.jessi.okgo.cookie.CookieJarImpl;
@@ -43,6 +40,7 @@ import top.jessi.okgo.request.PostRequest;
 import top.jessi.okgo.request.PutRequest;
 import top.jessi.okgo.request.TraceRequest;
 import top.jessi.okgo.utils.HttpUtils;
+import top.jessi.okgo.utils.ILog;
 
 /**
  * ================================================
@@ -67,7 +65,6 @@ public class OK {
     private int mRetryCount;                // 全局超时重试次数
     private CacheMode mCacheMode;           // 全局缓存模式
     private long mCacheTime;                // 全局缓存过期时间,默认永不过期
-    private boolean mLogShow = false;
 
     private OK() {
         mDelivery = new Handler(Looper.getMainLooper());
@@ -88,17 +85,6 @@ public class OK {
         builder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
         builder.hostnameVerifier(HttpsUtils.UnSafeHostnameVerifier);
         okHttpClient = builder.build();
-    }
-
-    /**
-     * 初始化日志框架
-     */
-    private void initLog() {
-        LogConfiguration configuration = new LogConfiguration.Builder()
-                .tag("OK")
-                .logLevel(mLogShow ? LogLevel.ALL : LogLevel.NONE)
-                .build();
-        ILog.init(configuration);
     }
 
     public static OK getInstance() {
@@ -170,7 +156,6 @@ public class OK {
      */
     public OK init(Application app) {
         context = app;
-        initLog();
         return this;
     }
 
@@ -217,7 +202,7 @@ public class OK {
     }
 
     public OK setLogShow(boolean isShow) {
-        this.mLogShow = isShow;
+        ILog.setIsSecurityLog(isShow);
         return this;
     }
 

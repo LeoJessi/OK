@@ -37,7 +37,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import top.jessi.ilog.ILog;
+import top.jessi.okgo.utils.ILog;
 
 /**
  * Created by Jessi on 2022/8/13 10:41
