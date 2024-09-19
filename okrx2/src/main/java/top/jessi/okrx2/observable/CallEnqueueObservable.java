@@ -92,7 +92,7 @@ public class CallEnqueueObservable<T> extends Observable<Response<T>> {
                 if (terminated) {
                     RxJavaPlugins.onError(e);
                 } else {
-                    onError(response);
+                    onFailure(response);
                 }
             }
         }
@@ -103,7 +103,7 @@ public class CallEnqueueObservable<T> extends Observable<Response<T>> {
         }
 
         @Override
-        public void onError(Response<T> response) {
+        public void onFailure(Response<T> response) {
             if (call.isCanceled()) return;
 
             Throwable throwable = response.getException();
