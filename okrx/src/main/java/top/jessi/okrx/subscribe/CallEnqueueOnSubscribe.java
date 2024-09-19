@@ -71,7 +71,7 @@ public final class CallEnqueueOnSubscribe<T> implements OnSubscribe<Response<T>>
             }
 
             @Override
-            public void onError(Response<T> response) {
+            public void onFailure(Response<T> response) {
                 Throwable throwable = response.getException();
                 Exceptions.throwIfFatal(throwable);
                 arbiter.emitError(throwable);

@@ -67,7 +67,7 @@ public class HttpLoggingInterceptor implements Interceptor {
     }
 
     private void log(String message) {
-        OkLogger.i(message);
+        OkLogger.d(message);
         // logger.log(colorLevel, message);
     }
 

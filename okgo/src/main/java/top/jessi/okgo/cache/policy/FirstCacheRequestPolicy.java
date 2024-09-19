@@ -50,7 +50,7 @@ public class FirstCacheRequestPolicy<T> extends BaseCachePolicy<T> {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mCallback.onError(error);
+                mCallback.onFailure(error);
                 mCallback.onFinish();
             }
         });
@@ -87,7 +87,7 @@ public class FirstCacheRequestPolicy<T> extends BaseCachePolicy<T> {
                     prepareRawCall();
                 } catch (Throwable throwable) {
                     Response<T> error = Response.error(false, rawCall, null, throwable);
-                    mCallback.onError(error);
+                    mCallback.onFailure(error);
                     return;
                 }
                 if (cacheEntity != null) {
