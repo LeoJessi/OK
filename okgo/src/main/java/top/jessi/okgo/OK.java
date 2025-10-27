@@ -54,7 +54,7 @@ import top.jessi.okgo.utils.ILog;
  * 1.更换日志打印至ILog框架，更加灵活控制日志输出
  */
 public class OK {
-    public static final long DEFAULT_MILLISECONDS = 60000;      // 默认的超时时间
+    public static final long DEFAULT_MILLISECONDS = 20000;      // 默认的超时时间
     public static long REFRESH_TIME = 300;                      // 回调刷新时间（单位ms）
 
     private Application context;            // 全局上下文
