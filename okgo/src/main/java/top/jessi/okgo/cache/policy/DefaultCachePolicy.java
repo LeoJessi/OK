@@ -15,6 +15,8 @@
  */
 package top.jessi.okgo.cache.policy;
 
+import androidx.annotation.NonNull;
+
 import top.jessi.okgo.cache.CacheEntity;
 import top.jessi.okgo.callback.Callback;
 import top.jessi.okgo.exception.CacheException;
@@ -38,7 +40,7 @@ public class DefaultCachePolicy<T> extends BaseCachePolicy<T> {
     }
 
     @Override
-    public void onSuccess(final Response<T> success) {
+    public void onSuccess(@NonNull final Response<T> success) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -49,7 +51,7 @@ public class DefaultCachePolicy<T> extends BaseCachePolicy<T> {
     }
 
     @Override
-    public void onError(final Response<T> error) {
+    public void onError(@NonNull final Response<T> error) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

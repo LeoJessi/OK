@@ -17,6 +17,7 @@ package top.jessi.okrx2.observable;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
@@ -98,7 +99,7 @@ public class CallEnqueueObservable<T> extends Observable<Response<T>> {
         }
 
         @Override
-        public void onCacheSuccess(Response<T> response) {
+        public void onCacheSuccess(@NonNull Response<T> response) {
             onSuccess(response);
         }
 

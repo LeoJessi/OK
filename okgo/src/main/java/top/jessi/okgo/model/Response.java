@@ -15,6 +15,8 @@
  */
 package top.jessi.okgo.model;
 
+import androidx.annotation.NonNull;
+
 import okhttp3.Call;
 import okhttp3.Headers;
 
@@ -35,6 +37,7 @@ public final class Response<T> {
     private Call rawCall;
     private okhttp3.Response rawResponse;
 
+    @NonNull
     public static <T> Response<T> success(boolean isFromCache, T body, Call rawCall, okhttp3.Response rawResponse) {
         Response<T> response = new Response<>();
         response.setFromCache(isFromCache);
@@ -44,6 +47,7 @@ public final class Response<T> {
         return response;
     }
 
+    @NonNull
     public static <T> Response<T> error(boolean isFromCache, Call rawCall, okhttp3.Response rawResponse, Throwable throwable) {
         Response<T> response = new Response<>();
         response.setFromCache(isFromCache);

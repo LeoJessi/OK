@@ -15,6 +15,8 @@
  */
 package top.jessi.okgo.convert;
 
+import androidx.annotation.NonNull;
+
 import okhttp3.Response;
 
 /**
@@ -35,5 +37,5 @@ public interface Converter<T> {
      * @return 转换后的结果
      * @throws Exception 转换过程发生的异常
      */
-    T convertResponse(Response response) throws Throwable;
+    T convertResponse(@NonNull Response response) throws Throwable;
 }
