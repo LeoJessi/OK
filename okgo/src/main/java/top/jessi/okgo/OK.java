@@ -64,11 +64,11 @@ public class OK {
     private HttpHeaders mCommonHeaders;     // 全局公共请求头
     private int mRetryCount;                // 全局超时重试次数
     private CacheMode mCacheMode;           // 全局缓存模式
-    private long mCacheTime;                // 全局缓存过期时间,默认永不过期
+    private long mCacheTime;                // 全局缓存过期时间, 默认永不过期
 
     private OK() {
         mDelivery = new Handler(Looper.getMainLooper());
-        mRetryCount = 3;
+        mRetryCount = 1;
         mCacheTime = CacheEntity.CACHE_NEVER_EXPIRE;
         mCacheMode = CacheMode.NO_CACHE;
 
