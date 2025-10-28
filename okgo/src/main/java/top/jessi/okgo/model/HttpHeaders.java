@@ -32,7 +32,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 
+import top.jessi.jhelper.util.Functions;
 import top.jessi.okgo.OK;
+import top.jessi.okgo.OkHttp;
 import top.jessi.okgo.utils.OkLogger;
 
 /**
@@ -211,7 +213,10 @@ public class HttpHeaders implements Serializable {
                 // We have nothing to do
             }
             if (TextUtils.isEmpty(webUserAgent)) {
-                webUserAgent = "okhttp-okgo/jeasonlzy";
+                webUserAgent = OkHttp.getUserAgent(OK.getInstance().getContext());
+            }
+            if (TextUtils.isEmpty(webUserAgent)) {
+                webUserAgent = "Android-OK";
             }
 
             Locale locale = Locale.getDefault();

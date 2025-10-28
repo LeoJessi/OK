@@ -1,6 +1,9 @@
 # OK
 OKhttp网络请求框架
 
+#### 2025.10.28
+1. 优化getUserAgent
+
 #### 2025.10.27
 1. 将JsonCallback移植过来
 
